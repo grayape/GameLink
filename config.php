@@ -1,0 +1,1 @@
+<?phpdefine('DB_HOST','localhost');define('DB_NAME','gamelinkdb');define('DB_USER','root');define('DB_PASS','root');define('PW_HASH','fUckd!1g@lG_^**^~d@r');define('PATH_ROOT','');
