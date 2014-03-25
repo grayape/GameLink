@@ -30,7 +30,8 @@ CREATE TABLE `players` (
 CREATE TABLE `teams` (
   `teamId` int(11) NOT NULL AUTO_INCREMENT,
   `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ranking` double(11,2) NOT NULL DEFAULT '1500.00',
+  `name` varchar(50) NOT NULL,
+  `rating` int(11) NOT NULL DEFAULT '1200',
   `wins` int(11) NOT NULL,
   `losses` int(11) NOT NULL,
   PRIMARY KEY (`teamID`)

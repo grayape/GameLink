@@ -1,5 +1,5 @@
 <?php
-require 'flight/Flight.php';
+require 'flight/Flight.php'; //https://github.com/mikecao/flight
 require_once 'DB.php';
 
 date_default_timezone_set("Europe/Copenhagen");
@@ -13,11 +13,13 @@ function match($location, $teama, $teamb, $scorea, $scoreb){
 
 function register($rfid, $name){
     global $DB;
-    echo "registers player<br/>";
-    echo "Player with RFID $rfid registered as $name<br/>";
     $result = $DB->query("INSERT INTO players
                           (rfid,name) VALUES
                           ('$rfid','$name')");
+}
+
+function team(){
+    //list of players
 }
 
 Flight::route('/match/@location/@teama/@teamb/@scorea/@scoreb', 'match');
