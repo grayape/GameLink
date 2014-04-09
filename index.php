@@ -1,14 +1,49 @@
 <?php
 require 'flight/Flight.php'; //https://github.com/mikecao/flight
 require_once 'DB.php';
+require_once("dbhelper.php");
 
 date_default_timezone_set("Europe/Copenhagen");
-
-function match($location, $teama, $teamb, $scorea, $scoreb){
+//$location, $teama, $teamb, $scorea, $scoreb
+//sytax:
+// {
+    // "teama": [
+        // 1,
+        // 2,
+        // 3
+    // ],
+    // "teamb": [
+        // 1,
+        // 2,
+        // 3
+    // ],
+    // "scorea": 123,
+    // "scoreb": 123,
+    // "location": 123
+// }
+function match(){
+    
+    $inputData = Flight::request();
+    
+    // var_dump($inputData->body);
+//     
+    $obj = json_decode($inputData->body);
+    var_dump($obj);
+    // return;
+    
+    //TODO:CHECK UP AGAINST JSON SCHEMA
+    
+    //CHECK IF TEAMS EXIST ETC
+    $teamaId = getTeamId($obj->teama);
+    $teambId = getTeamId($obj->teamb);
+    
+    //Flight::json(array('yolo' => $teamaId)); // this is how to debug bro
+    
+    //INSERT MATCH INTO DB
     global $DB;
     $result = $DB->query("INSERT INTO matches 
                           (location,teamA,teamB,teamAScore,teamBScore) VALUES 
-                          ($location,$teama,$teamb,$scorea,$scoreb)");
+                          ($obj->location,$teamaId,$teambId,$obj->scorea,$obj->scoreb)");
 }
 
 function register($rfid, $name){
@@ -22,7 +57,9 @@ function team(){
     //list of players
 }
 
-Flight::route('/match/@location/@teama/@teamb/@scorea/@scoreb', 'match');
+
+
+Flight::route('POST|GET /match', 'match');
 Flight::route('/register/@rfid/@name', 'register');
 
 Flight::start();

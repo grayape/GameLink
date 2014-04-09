@@ -3,7 +3,7 @@
 --
 CREATE TABLE `matches` (
   `matchId` int(11) NOT NULL AUTO_INCREMENT,
-  `location` int(11) NOT NULL,
+  `location` varchar(128) NOT NULL,
   `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `teamA` int(11) NOT NULL,
   `teamB` int(11) NOT NULL,
