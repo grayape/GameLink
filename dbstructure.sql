@@ -10,7 +10,7 @@ CREATE TABLE `matches` (
   `teamAScore` int(3) NOT NULL,
   `teamBScore` int(3) NOT NULL,
   `points` int(11) DEFAULT NULL,
-  PRIMARY KEY (`matchID`)
+  PRIMARY KEY (`matchId`)
 );
 
 --
@@ -21,7 +21,7 @@ CREATE TABLE `players` (
   `rfid` varchar(8) NOT NULL,
   `name` varchar(50) NOT NULL,
   `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`playerID`)
+  PRIMARY KEY (`playerId`)
 );
 
 --
@@ -34,7 +34,7 @@ CREATE TABLE `teams` (
   `rating` int(11) NOT NULL DEFAULT '1200',
   `wins` int(11) NOT NULL,
   `losses` int(11) NOT NULL,
-  PRIMARY KEY (`teamID`)
+  PRIMARY KEY (`teamId`)
 );
 
 --
