@@ -1,5 +1,5 @@
 <?php
-require_once("DB.php");
+require_once("VDO.php");
 
 //returns FALSE on failure and teamId on success
 /**
@@ -17,9 +17,9 @@ function getTeamId($array){
     //check if team exists
     $playerCount = count($array);
     $commaArray = implode(",",$array);
-    $result = $DB->query("SELECT teamId FROM memberof WHERE playerId IN ($commaArray)
-                          HAVING COUNT(playerId) = $playerCount;");
-    $teamObj = mysql_fetch_object($result);
+    $result = $DB->prepareAndExecute("SELECT teamId FROM memberof WHERE playerId IN (?)
+                          HAVING COUNT(playerId) = ?",array($commaArray,$playerCount));
+    $teamObj = $result->fetchObject();
     
     //Team exists
     //Return Team Id 
@@ -29,12 +29,12 @@ function getTeamId($array){
     
     //Team does not exist
     //Create new team
-    $result = $DB->query("INSERT INTO teams (name, rating, wins, losses) VALUES ('',1200,0,0);");
-    $teamId = mysqli_insert_id();
+    $DB->prepareAndExecute("INSERT INTO teams (name, rating, wins, losses) VALUES ('',1200,0,0)");
+    $teamId = $DB->lastInsertId();
     
     //Add players to team
     foreach($array as $playerId){
-        $result = $DB->query("INSERT INTO memberof (playerId,teamId) VALUES ($playerId,$teamId)");
+        $DB->prepareAndExecute("INSERT INTO memberof (playerId,teamId) VALUES (?,?)",array($playerId,$teamId));
     }
     //return the teamId of the new team
     return $teamId;
