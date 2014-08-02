@@ -1,0 +1,20 @@
+
+ 
+      <!--Sidebar content-->
+<div class="jumbotron">
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="logType">
+        <option value="cashier">Cashier</option>
+        <option value="customer2">Customer</option>
+      </select>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+     <ul class="phones">
+        <li ng-repeat="entry in entries | filter:query" class="log">
+          <p>{{entry}}</p>
+        </li>
+      </ul>
+</div>

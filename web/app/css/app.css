@@ -1,0 +1,28 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 60px;
+}
+
+.session {
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #CCCCCC;
+  margin-top: 1em;
+}
+/*.log {
+  list-style: none;
+}
+
+.thumb {
+  float: left;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  height: 100px;
+  width: 100px;
+}
+
+.log li {
+  clear: both;
+ 
+}
+*/
