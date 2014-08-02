@@ -4,15 +4,15 @@
 /// <reference path='../typings/angularjs/angular-route.d.ts' />
 
 //##### models #####
-/// <reference path='js/models.ts' />
+/// <reference path='ts/models.ts' />
 
 //##### services #####
-/// <reference path='js/services.ts' />
+/// <reference path='ts/services.ts' />
 
 //##### directives #####
-/// <reference path='js/directives.ts' />
+/// <reference path='ts/directives.ts' />
 // 
 //##### controllers #####
-/// <reference path='js/controllers.ts' />
+/// <reference path='ts/controllers.ts' />
 
-/// <reference path='js/app.ts' />
+/// <reference path='ts/app.ts' />

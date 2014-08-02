@@ -45,3 +45,6 @@ database.db-journal
 #settings folders
 .settings/*
 config/individual.conf
+
+web/tsd.json
+web/typings/
