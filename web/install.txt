@@ -1,0 +1,14 @@
+sudo apt-get install nodejs-legacy
+nodejs --version
+sudo apt-get install npm
+npm install
+sudo npm install -g typescript
+sudo npm install -g bower
+bower install
+sudo npm install tsd -g
+tsd --help
+tsd query angular --action install
+tsd query jquery --action install
+tsd query angular-route --action install
+tsc --out app/app.js app/_all.ts
+npm start
