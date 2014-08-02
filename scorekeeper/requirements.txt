@@ -1,0 +1,5 @@
+configparser
+pyzmq
+PySide
+sqlalchemy
+adafruit_bbio

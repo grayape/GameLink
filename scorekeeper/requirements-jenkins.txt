@@ -1,0 +1,7 @@
+configparser
+pyzmq
+sqlalchemy
+requests
+werkzeug
+adafruit_bbio
+  
