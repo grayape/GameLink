@@ -1,0 +1,38 @@
+
+ 
+      <!--Sidebar content-->
+  <div class="jumbotron">
+    <div class="row">
+      Search: <input ng-model="query">
+      Log From:
+
+      <select ng-model="logType">
+        <option value="cashier">Cashier</option>
+        <option value="customer2">Customer</option>
+      </select>
+    </div>
+    <div class="row">
+      Sessions: {{(sessions | filter:query ).length}}
+    
+    </div>
+  </div>
+    
+
+     
+  <div ng-repeat="session in sessions | filter: query"  class="row session">
+     <div class="col-xs-12">
+        <div class="row">
+          <p>Uid: {{session.uid}}, {{session.decuid}}</p>
+  
+          <p>Duration: {{session.duration}}</p>
+          <p>Type; {{session.type}}</p>
+          <div ng-repeat="entry in session.entries" class="row">
+            <div class="col-xs-3 time">{{entry.time}}</div>
+            <div class="col-xs-2 counterpart">{{entry.counterpart}}</div>
+            <div class="col-xs-2 head">{{entry.head}}</div>
+            <div class="col-xs-5 data">{{entry.data}}&nbsp;</div>
+          </div>
+        </div>
+     
+   
+  </div>
