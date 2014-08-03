@@ -3,7 +3,7 @@
 module app {
     'use strict'
 
-    var myapp: ng.IModule = angular.module('zebralogApp', ['ngRoute'])
+    var myapp: ng.IModule = angular.module('zebralogApp', ['ngRoute','ngTable'])
 
     myapp.controller('SessionCtrl', SessionCtrl)
     myapp.controller('EntryCtrl', EntryCtrl)
@@ -15,6 +15,7 @@ module app {
     $routeProvider.
     when('/entries', {templateUrl: 'partials/entries.html', controller: EntryCtrl}).
     when('/sessions', {templateUrl: 'partials/sessions.html', controller: SessionCtrl}).
+    when('/players', {templateUrl: 'partials/players.html', controller: PlayersCtrl}).
     
     otherwise({redirectTo: '/logs'})
     }])

@@ -1,0 +1,21 @@
+
+ 
+      <!--Sidebar content-->
+<div class="jumbotron">
+  <div class="row">
+    Search: <input ng-model="query">
+    <button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+  </div>
+</div>
+<div class="col-md-12">
+  <table ng-table="tableParams" class="table">
+      <tr ng-repeat="player in $data | filter:query">
+          <td data-title="'Name'" sortable="'name'">
+              {{player.name}}
+          </td>
+          <td data-title="'Matches Played'" sortable="'matches_played'">
+              {{player.matches_played}}
+          </td>
+      </tr>
+  </table>
+</div>
